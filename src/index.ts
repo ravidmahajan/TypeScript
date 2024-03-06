@@ -173,3 +173,56 @@ console.log("Mfg = " + Mfg.toLocaleDateString());
 console.log("------------------------------------");
 let Mfg1 = new Date("2024-05-06 10:20:32.99");
 console.log("Mfg = " + Mfg1.toLocaleDateString());
+
+
+console.log("------------------------------------");
+// Symbol
+const ProductId = Symbol();
+
+// let product: {Name: string, Price: number, ProductId: number} = {
+//     ProductId: 1,
+//     Name: "TV",
+//     Price: 45000
+// };
+
+// for(property in product){
+//     console.log(property);
+// }
+
+// datatype problem
+
+// let product: {Name: string, Price: number, ProductId: number} = {
+//     [ProductId]: 1 
+//     Name: "TV",
+//     Price: 45000
+// };
+
+// for(property in product){
+//     console.log(property);
+// }
+
+let product: any = {
+    [ProductId]: 1,
+    Name: "TV",
+    Price: 45000
+};
+
+for(property in product){
+    console.log(property);
+}
+console.log("ProductId=" + product[ProductId]);
+
+console.log("------------------------------------");
+//Functions in Typescript
+
+function HelloWorld(): void {
+    console.log("Welcome to TypeScript");
+}
+
+HelloWorld();
+
+function Hello(name: string): string{
+    return `Hello ${name}`;
+}
+
+console.log(Hello("Ravi"));

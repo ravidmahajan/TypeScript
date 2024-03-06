@@ -1,3 +1,4 @@
+var _a;
 var username = 'Ravi';
 // document.write("Hello! " + username);
 console.log("Hello! " + username);
@@ -103,12 +104,13 @@ car1.Print();
 console.log("------------------------------------");
 // Array of Objects
 var students = [{ Name: "John", Age: 23 }, { Name: "Jane", Age: 21 }];
-for (var _a = 0, students_1 = students; _a < students_1.length; _a++) {
-    var student = students_1[_a];
+for (var _b = 0, students_1 = students; _b < students_1.length; _b++) {
+    var student = students_1[_b];
     console.log("".concat(student.Name, " - ").concat(student.Age));
 }
 console.log("------------------------------------");
 //Map Type
+// to use run -> npm i @types/node
 var data = new Map();
 data.set('India', 12);
 data.set("USA", 3);
@@ -125,3 +127,41 @@ console.log("Mfg = " + Mfg.toLocaleDateString());
 console.log("------------------------------------");
 var Mfg1 = new Date("2024-05-06 10:20:32.99");
 console.log("Mfg = " + Mfg1.toLocaleDateString());
+console.log("------------------------------------");
+// Symbol
+var ProductId = Symbol();
+// let product: {Name: string, Price: number, ProductId: number} = {
+//     ProductId: 1,
+//     Name: "TV",
+//     Price: 45000
+// };
+// for(property in product){
+//     console.log(property);
+// }
+// datatype problem
+// let product: {Name: string, Price: number, ProductId: number} = {
+//     [ProductId]: 1 
+//     Name: "TV",
+//     Price: 45000
+// };
+// for(property in product){
+//     console.log(property);
+// }
+var product = (_a = {},
+    _a[ProductId] = 1,
+    _a.Name = "TV",
+    _a.Price = 45000,
+    _a);
+for (property in product) {
+    console.log(property);
+}
+console.log("ProductId=" + product[ProductId]);
+//Functions in Typescript
+function HelloWorld() {
+    console.log("Welcome to TypeScript");
+}
+HelloWorld();
+function Hello(name) {
+    return "Hello ".concat(name);
+}
+console.log(Hello("Ravi"));
