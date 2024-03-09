@@ -226,3 +226,125 @@ function Hello(name: string): string{
 }
 
 console.log(Hello("Ravi"));
+
+//optional parameter in functions
+
+// function Info1(Name: string, Price?: number, Model: string): void{
+// // invalid - A required parameter cannot follow an optional parameter
+// }
+console.log("------------------------------------");
+
+function Info2(Name: string, Price?: number): void{
+    if(Price){
+        console.log(`${Name}\n${Price}`);
+    } else {
+        console.log(`${Name}`);
+    }
+}
+
+Info2("Audi", 60000);
+
+console.log("------------------------------------");
+Info2("BMW");
+console.log("------------------------------------");
+
+
+// Interfaces
+
+interface IProduct {
+    Name: string;
+    readonly Price: number;
+    Rating?: number // optional rule
+}
+
+let new_product: IProduct = {
+    Name: "Refrigerator",
+    Price: 10000
+}
+
+
+let product2: IProduct = {
+    Name: "Refrigerator",
+    Price: 10000
+}
+
+// product2.Price = 50000; // invalid - readonly rule
+product2.Name = "L.G. TV"; // valid
+
+
+
+interface Item {
+    Name: string;
+    Price: number;
+    Qty: number;
+    Total(): number;
+    Print?(): void; // optional method declaration
+    // Details(Name: string, Price: number): void;  //parameterized method
+}
+
+let item: Item = {
+    Name: "TV",
+    Price: 5000,
+    Qty: 2,
+    Total: function(){
+       return this.Qty * this.Price;
+    },
+    Print: function(){
+        console.log(`Name=${this.Name}\nPrice= ${this.Price}\nQty= ${this.Qty}\nTotal= ${this.Total()}`);
+    } 
+}
+
+item.Print();
+console.log("------------------------------------");
+
+
+//extending contracts - extensibility
+// Multilevel Inheritance
+interface Bank_V1_Contract {
+    Personal: string;
+    NRI: string;
+}
+
+interface Bank_V2_Contract extends Bank_V1_Contract {
+    Loans: string;
+}
+
+interface Bank_V3_Contract extends Bank_V2_Contract {
+    Agri: string;
+}
+
+
+let low_compatible_user: Bank_V1_Contract = {
+    Personal: "Personal",
+    NRI: "NRI"
+}
+
+
+let high_compatible_user: Bank_V2_Contract = {
+    Personal: "Personal",
+    NRI: "NRI",
+    Loans: "Loans"
+}
+
+//Multiple Inheritance
+
+interface DemoProduct {
+    Name: string;
+    Price: number;
+}
+
+interface ICategory {
+    CategoryName: string;
+}
+
+interface ProductContract extends DemoProduct, ICategory{
+    Title: string
+}
+
+let obj: ProductContract = {
+    Name: "TV", // if both  classes have same property it will take from the 1st Interface (old will continue)
+    Price: 60000,
+    Title: "Smart TV",
+    CategoryName: "Electronics"
+
+}

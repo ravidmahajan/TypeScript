@@ -156,6 +156,7 @@ for (property in product) {
     console.log(property);
 }
 console.log("ProductId=" + product[ProductId]);
+console.log("------------------------------------");
 //Functions in Typescript
 function HelloWorld() {
     console.log("Welcome to TypeScript");
@@ -165,3 +166,42 @@ function Hello(name) {
     return "Hello ".concat(name);
 }
 console.log(Hello("Ravi"));
+//optional parameter in functions
+// function Info1(Name: string, Price?: number, Model: string): void{
+// // invalid - A required parameter cannot follow an optional parameter
+// }
+console.log("------------------------------------");
+function Info2(Name, Price) {
+    if (Price) {
+        console.log("".concat(Name, "\n").concat(Price));
+    }
+    else {
+        console.log("".concat(Name));
+    }
+}
+Info2("Audi", 60000);
+console.log("------------------------------------");
+Info2("BMW");
+console.log("------------------------------------");
+var new_product = {
+    Name: "Refrigerator",
+    Price: 10000
+};
+var product2 = {
+    Name: "Refrigerator",
+    Price: 10000
+};
+// product2.Price = 50000; // invalid - readonly rule
+product2.Name = "L.G. TV"; // valid
+var item = {
+    Name: "TV",
+    Price: 5000,
+    Qty: 2,
+    Total: function () {
+        return this.Qty * this.Price;
+    },
+    Print: function () {
+        console.log("Name=".concat(this.Name, "\nPrice= ").concat(this.Price, "\nQty= ").concat(this.Qty, "\nTotal= ").concat(this.Total()));
+    }
+};
+item.Print();
