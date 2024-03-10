@@ -1,11 +1,40 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="src/index.ts"></script>
 </head>
 <body>
     <h1>Welcome to TypeScript</h1>
 </body>
-</html>
+</html> -->
+
+
+// Symbol
+
+<form action="">
+    <dl>
+        <dt>Name</dt>
+        <dd><input type="hidden" name="UserId" value="ravi_dnya"></dd>
+        <dd><input type="text" name="Username" value="Ravi"></dd>
+        <dt>Age</dt>
+        <dd><input type="number" name="Age" value="20"></dd>
+    </dl>
+    <button>Submit</button>
+</form>
+
+<script>
+const ProductId = Symbol();
+let product = {
+    [ProductId]: 1,
+    Name: "TV",
+    Price: 45000
+};
+
+for(property in product){
+    document.write(property + "<br>")
+}
+document.write(product[ProductId]);
+</script>

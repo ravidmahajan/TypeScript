@@ -338,7 +338,7 @@ interface ICategory {
 }
 
 interface ProductContract extends DemoProduct, ICategory{
-    Title: string
+    Title: string;
 }
 
 let obj: ProductContract = {
@@ -346,5 +346,4 @@ let obj: ProductContract = {
     Price: 60000,
     Title: "Smart TV",
     CategoryName: "Electronics"
-
 }
