@@ -1,3 +1,18 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var _a;
 var username = 'Ravi';
 // document.write("Hello! " + username);
@@ -205,3 +220,113 @@ var item = {
     }
 };
 item.Print();
+console.log("------------------------------------");
+var low_compatible_user = {
+    Personal: "Personal",
+    NRI: "NRI"
+};
+var high_compatible_user = {
+    Personal: "Personal",
+    NRI: "NRI",
+    Loans: "Loans"
+};
+var obj = {
+    Name: "TV", // if both  classes have same property it will take from the 1st Interface (old will continue)
+    Price: 60000,
+    Title: "Smart TV",
+    CategoryName: "Electronics"
+};
+// Class Declaration
+var Employee = /** @class */ (function () {
+    function Employee() {
+    }
+    return Employee;
+}());
+// Class Expression
+var Product = /** @class */ (function () {
+    function Product() {
+    }
+    return Product;
+}());
+function Hello1() {
+}
+var welcome = function () {
+};
+console.log("------------------------------------");
+var CategoryName = "Electronics";
+var Demo = /** @class */ (function () {
+    function Demo() {
+    }
+    return Demo;
+}());
+if (CategoryName == "Electronics") {
+    Demo = /** @class */ (function () {
+        function class_1() {
+            this.ProductName = "TV";
+            this.Price = 34000;
+        }
+        return class_1;
+    }());
+}
+else {
+    Demo = /** @class */ (function () {
+        function class_2() {
+            this.EmpName = "TV";
+            this.Salary = 35000;
+        }
+        return class_2;
+    }());
+}
+// A constructor, method, accessor, or property was expected
+/*
+class ProductDemo {
+    var uname = "A";
+}
+*/
+var ProductDemo = /** @class */ (function () {
+    function ProductDemo() {
+    }
+    ProductDemo.prototype.Print = function () {
+        var x = 10;
+    };
+    return ProductDemo;
+}());
+console.log("------------------------------------");
+// Static
+var DemoClass = /** @class */ (function () {
+    function DemoClass() {
+        this.n = 0; // non=static memory
+        DemoClass.s = DemoClass.s + 1;
+        this.n = this.n + 1;
+    }
+    DemoClass.prototype.Print = function () {
+        console.log("s = ".concat(DemoClass.s, " n = ").concat(this.n));
+    };
+    DemoClass.s = 0; // static memory
+    return DemoClass;
+}());
+var obj1 = new DemoClass();
+obj1.Print();
+var obj2 = new DemoClass();
+obj2.Print();
+var obj3 = new DemoClass();
+obj3.Print();
+console.log("------------------------------------");
+//Access Modifier
+var Parent = /** @class */ (function () {
+    function Parent() {
+        this.Name = "TV";
+        this.Price = 23456;
+        this.Rating = 5;
+    }
+    return Parent;
+}());
+var Derived = /** @class */ (function (_super) {
+    __extends(Derived, _super);
+    function Derived() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return Derived;
+}(Parent));
+var ob = new Derived();
+ob.Name; // only Name can be accessed, protected member cannot be accessed outside derived class even using derived class object

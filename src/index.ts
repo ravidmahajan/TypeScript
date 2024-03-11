@@ -347,3 +347,106 @@ let obj: ProductContract = {
     Title: "Smart TV",
     CategoryName: "Electronics"
 }
+
+
+// Class Declaration
+class Employee{
+
+}
+
+// Class Expression
+
+const Product = class {
+
+}
+
+function Hello1(){
+
+}
+
+const welcome = function(){
+
+}
+
+console.log("------------------------------------");
+
+var CategoryName:string = "Electronics";
+
+var Demo = class {}
+
+if(CategoryName=="Electronics"){
+    Demo = class {
+        ProductName = "TV";
+        Price = 34000;
+    }
+} else {
+    Demo = class {
+        EmpName = "TV";
+        Salary = 35000;
+    }   
+}
+
+// A constructor, method, accessor, or property was expected
+/*
+class ProductDemo {
+    var uname = "A";
+}
+*/
+
+
+class ProductDemo {
+
+    Print(){
+        var x = 10;
+    }
+}
+console.log("------------------------------------");
+// Static
+
+class DemoClass {
+    static s = 0; // static memory
+    n = 0; // non=static memory
+    constructor(){
+        DemoClass.s = DemoClass.s + 1;
+        this.n = this.n + 1;
+    }
+    Print(){
+        console.log(`s = ${DemoClass.s} n = ${this.n}`);
+    } 
+}
+
+let obj1 = new DemoClass();
+obj1.Print();
+
+let obj2 = new DemoClass();
+obj2.Print();
+
+let obj3 = new DemoClass();
+obj3.Print();
+
+console.log("------------------------------------");
+
+//Access Modifier
+
+class Parent {
+    public Name: string = "TV";
+    private Price: number = 23456;
+    protected Rating: number = 5;
+}
+
+class Derived extends Parent {
+    /*  Name & Rating is accessible - public & protected
+    Print(ob:Derived){
+        ob.
+    }
+    */
+
+    /* only Name is accessible - public
+    NewPrint(ob:Parent){
+        ob.
+    }
+    */
+}
+
+let ob = new Derived();
+ob.Name; // only Name can be accessed, protected member cannot be accessed outside derived class even using derived class object
