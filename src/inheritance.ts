@@ -9,7 +9,7 @@ class Super{
 class Derived extends Super{
     constructor(){
         super();
-        console.log("Super Class Constructor")
+        console.log("Derived Class Constructor")
     }
 }
 
