@@ -434,9 +434,9 @@ class Parent {
     protected Rating: number = 5;
 }
 
-class Derived extends Parent {
+class Child extends Parent {
     /*  Name & Rating is accessible - public & protected
-    Print(ob:Derived){
+    Print(ob:Child){
         ob.
     }
     */
@@ -448,5 +448,5 @@ class Derived extends Parent {
     */
 }
 
-let ob = new Derived();
+let ob = new Child();
 ob.Name; // only Name can be accessed, protected member cannot be accessed outside derived class even using derived class object
